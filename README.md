@@ -8,6 +8,14 @@ A runnable prototype demonstrating CAI-powered User & Entity Behaviour Analytics
 - Lightweight web dashboard (HTML/JS) to view anomalies and metrics
 - Sample data and a simulator to stream synthetic events
 
+## Images
+
+<img width="1835" height="916" alt="Screenshot 2025-09-27 125323" src="https://github.com/user-attachments/assets/8b846d80-38ab-43b8-b79f-a7eb4867a49d" />
+<img width="1494" height="892" alt="Screenshot 2025-09-27 125340" src="https://github.com/user-attachments/assets/d348ddb3-0f36-4f9d-be08-b1f5890aadaa" />
+<img width="1586" height="880" alt="Screenshot 2025-09-27 125350" src="https://github.com/user-attachments/assets/89e301b0-1ff7-4bf1-b2e0-d320655f41d6" />
+<img width="1659" height="578" alt="Screenshot 2025-09-27 125359" src="https://github.com/user-attachments/assets/5e7abcdb-b7ef-4ae3-ac1c-f4e0951d184a" />
+
+
 ## Quickstart
 
 Prerequisites: Python 3.10+, Node not required. Runs on Windows, macOS, Linux.
