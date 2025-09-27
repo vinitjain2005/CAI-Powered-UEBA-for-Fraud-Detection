@@ -16,23 +16,45 @@ A runnable prototype demonstrating CAI-powered User & Entity Behaviour Analytics
 <img width="1659" height="578" alt="Screenshot 2025-09-27 125359" src="https://github.com/user-attachments/assets/5e7abcdb-b7ef-4ae3-ac1c-f4e0951d184a" />
 
 
-## Quickstart
+## ⚡ Quick Start
 
-Prerequisites: Python 3.10+, Node not required. Runs on Windows, macOS, Linux.
+1️⃣ Navigate to project folder (PowerShell safe with `[ ]`):
 
-```bash
+```powershell
+Set-Location -LiteralPath "C:\Users\jainv\OneDrive\Documents\BOB[1]\BOB"
+```
+
+2️⃣ Create & activate virtual environment:
+
+```powershell
 python -m venv .venv
-. .venv/Scripts/activate  # on Windows PowerShell: .venv\Scripts\Activate.ps1
+.venv\Scripts\activate.bat
+```
+
+3️⃣ Install dependencies:
+
+```powershell
 pip install -r requirements.txt
+```
 
-# Start backend
-uvicorn app.main:app --reload
+4️⃣ Run backend:
 
-# In another terminal, stream sample events
+```powershell
+python -m uvicorn app.main:app --reload
+```
+
+5️⃣ (Optional) Run event simulator:
+
+```powershell
 python tools/simulate_events.py --users 200 --rate 4
 ```
 
-Open the dashboard at `http://127.0.0.1:8000/`.
+6️⃣ Open dashboard in browser:
+
+```
+http://127.0.0.1:8000/
+```
+
 
 ## Project Structure
 
