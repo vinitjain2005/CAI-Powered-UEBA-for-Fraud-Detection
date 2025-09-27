@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>UEBA Dashboard</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<header>
+		<h1>CAI-Powered UEBA</h1>
+		<p>Live anomalies and metrics</p>
+	</header>
+	<main>
+		<section class="controls">
+			<div class="control-group">
+				<label><input type="checkbox" id="darkToggle" /> Dark mode</label>
+			</div>
+			<div class="control-group">
+				<label><input type="checkbox" id="autoRefresh" checked /> Auto refresh</label>
+				<select id="refreshInterval">
+					<option value="2000">2s</option>
+					<option value="4000" selected>4s</option>
+					<option value="8000">8s</option>
+				</select>
+				<button id="manualRefresh">Refresh now</button>
+			</div>
+			<div class="control-group">
+				<label>Min score <input type="number" id="minScore" step="0.01" min="0" max="1" value="0.00" /></label>
+				<label>Channel
+					<select id="channelFilter">
+						<option value="">All</option>
+						<option value="internet_banking">Internet Banking</option>
+						<option value="mobile">Mobile</option>
+						<option value="upi">UPI</option>
+						<option value="atm">ATM</option>
+						<option value="api">API</option>
+					</select>
+				</label>
+				<label>Amount range
+					<input type="number" id="minAmount" placeholder="Min" step="0.01" />
+					<input type="number" id="maxAmount" placeholder="Max" step="0.01" />
+				</label>
+				<label>Risk level
+					<select id="riskLevel">
+						<option value="">All</option>
+						<option value="high">High (≥0.9)</option>
+						<option value="medium">Medium (0.7-0.9)</option>
+						<option value="low">Low (<0.7)</option>
+					</select>
+				</label>
+			</div>
+			<div class="control-group">
+				<input type="text" id="searchInput" placeholder="Search users or IDs..." />
+				<button id="exportCsv">Export CSV</button>
+				<button id="exportJson">Export JSON</button>
+				<button id="clearFilters">Clear Filters</button>
+			</div>
+		</section>
+		
+		<section class="dashboard-grid">
+			<div class="metrics-card">
+				<h3>Live Metrics</h3>
+				<div class="metrics">
+					<div class="metric-item">
+						<span class="metric-label">Events Ingested</span>
+						<span class="metric-value" id="ingested">0</span>
+					</div>
+					<div class="metric-item">
+						<span class="metric-label">Anomalies Detected</span>
+						<span class="metric-value" id="anoms">0</span>
+					</div>
+					<div class="metric-item">
+						<span class="metric-label">High Risk</span>
+						<span class="metric-value" id="highRisk">0</span>
+					</div>
+					<div class="metric-item">
+						<span class="metric-label">Active Users</span>
+						<span class="metric-value" id="activeUsers">0</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="chart-card">
+				<h3>Real-time Trends</h3>
+				<canvas id="trendChart" width="400" height="200"></canvas>
+			</div>
+		</section>
+		
+		<section class="tabs">
+			<button class="tab-btn active" data-tab="anomalies">Anomalies</button>
+			<button class="tab-btn" data-tab="users">User Risk Scores</button>
+			<button class="tab-btn" data-tab="analytics">Analytics</button>
+		</section>
+		
+		<div id="anomalies-tab" class="tab-content active">
+			<section>
+				<h2>Recent Anomalies</h2>
+				<div class="table-container">
+					<table id="anomTable">
+						<thead>
+							<tr><th>ID</th><th>User</th><th>Score</th><th>Channel</th><th>Amount</th><th>Time</th><th>Reasons</th><th>Actions</th></tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+		
+		<div id="users-tab" class="tab-content">
+			<section>
+				<h2>User Risk Scores</h2>
+				<div class="table-container">
+					<table id="usersTable">
+						<thead>
+							<tr><th>User ID</th><th>Risk Score</th><th>Last Activity</th><th>Channel</th><th>Anomaly Count</th><th>Actions</th></tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+		
+		<div id="analytics-tab" class="tab-content">
+			<section>
+				<h2>Analytics Dashboard</h2>
+				<div class="analytics-grid">
+					<div class="chart-container">
+						<h3>Channel Distribution</h3>
+						<canvas id="channelChart" width="300" height="200"></canvas>
+					</div>
+					<div class="chart-container">
+						<h3>Risk Score Distribution</h3>
+						<canvas id="riskChart" width="300" height="200"></canvas>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<div id="detailModal" class="modal">
+			<div class="modal-card">
+				<div class="modal-header">
+					<h3>Anomaly details</h3>
+					<button id="detailClose" aria-label="Close">✕</button>
+				</div>
+				<div id="detailContent" class="modal-content"></div>
+			</div>
+		</div>
+		
+		<div id="notificationContainer" class="notifications"></div>
+	</main>
+	<script src="/dashboard.js"></script>
+</body>
+</html>

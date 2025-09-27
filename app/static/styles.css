@@ -1,0 +1,96 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#f6f7f9;color:#111}
+header{background:#ff6a00;color:#fff;padding:16px 20px}
+main{padding:20px;max-width:1000px;margin:0 auto}
+.metrics{display:flex;gap:20px;margin-bottom:10px}
+.metrics div{background:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+th,td{padding:10px;border-bottom:1px solid #eee;text-align:left}
+th{background:#fafafa}
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;align-items:center}
+.control-group{display:flex;gap:10px;align-items:center;background:#fff;padding:8px 10px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.control-group label{display:flex;gap:6px;align-items:center}
+button{background:#ff6a00;color:#fff;border:none;border-radius:6px;padding:8px 10px;cursor:pointer}
+button:hover{filter:brightness(.95)}
+input,select{padding:6px 8px;border:1px solid #ddd;border-radius:6px}
+
+/* Modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);padding:20px}
+.modal-card{max-width:560px;margin:60px auto;background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.2);overflow:hidden}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #eee}
+.modal-content{padding:14px}
+.modal .kv{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;padding:6px 0;border-bottom:1px dashed #eee}
+.modal .kv span:first-child{color:#666}
+.modal .kv span:last-child{font-weight:600}
+
+/* Severity rows */
+tbody tr.sev-high{background:#fff2f2}
+tbody tr.sev-med{background:#fff9e8}
+tbody tr.sev-low{background:#f8fffa}
+
+/* Dashboard Grid */
+.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.metrics-card,.chart-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.metric-item{display:flex;flex-direction:column;gap:4px}
+.metric-label{font-size:12px;color:#666;text-transform:uppercase;letter-spacing:0.5px}
+.metric-value{font-size:24px;font-weight:600;color:#333}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:2px solid #eee}
+.tab-btn{padding:12px 20px;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s}
+.tab-btn:hover{background:#f5f5f5}
+.tab-btn.active{border-bottom-color:#ff6a00;color:#ff6a00;font-weight:600}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Table Container */
+.table-container{overflow-x:auto;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+th{background:#fafafa;font-weight:600;position:sticky;top:0;z-index:1}
+tbody tr{cursor:pointer;transition:background 0.2s}
+tbody tr:hover{background:#f8f9fa}
+
+/* Analytics Grid */
+.analytics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.chart-container{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.chart-container h3{margin:0 0 12px 0;font-size:16px;color:#333}
+
+/* Notifications */
+.notifications{position:fixed;top:20px;right:20px;z-index:1000;max-width:300px}
+.notification{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;margin-bottom:8px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.15);animation:slideIn 0.3s ease}
+.notification.info{background:#e3f2fd;color:#1976d2;border-left:4px solid #2196f3}
+.notification.warning{background:#fff3e0;color:#f57c00;border-left:4px solid #ff9800}
+.notification.error{background:#ffebee;color:#d32f2f;border-left:4px solid #f44336}
+.notification button{background:none;border:none;font-size:18px;cursor:pointer;margin-left:8px}
+
+@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* Enhanced Controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;align-items:center;background:#fff;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.control-group{display:flex;gap:8px;align-items:center}
+.control-group label{display:flex;gap:6px;align-items:center;white-space:nowrap}
+.control-group input[type="number"]{width:80px}
+.control-group input[type="text"]{width:200px}
+
+/* Action Buttons */
+button{background:#ff6a00;color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:14px;transition:all 0.2s}
+button:hover{background:#e55a00;transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button.secondary{background:#6c757d}
+button.secondary:hover{background:#5a6268}
+
+/* Dark theme */
+:root[data-theme="dark"]{--bg:#0e0f12;--text:#e6e7ea;--panel:#171a21;--muted:#9aa4b2;--border:#262a33}
+:root[data-theme="dark"] body{background:var(--bg);color:var(--text)}
+:root[data-theme="dark"] header{background:#ff6a00}
+:root[data-theme="dark"] .metrics-card, :root[data-theme="dark"] .chart-card, :root[data-theme="dark"] .controls, :root[data-theme="dark"] .control-group, :root[data-theme="dark"] table, :root[data-theme="dark"] .modal-card, :root[data-theme="dark"] .chart-container{background:var(--panel);box-shadow:none}
+:root[data-theme="dark"] th{background:#13161c}
+:root[data-theme="dark"] th, :root[data-theme="dark"] td{border-bottom:1px solid var(--border)}
+:root[data-theme="dark"] .modal .kv span:first-child{color:var(--muted)}
+:root[data-theme="dark"] input, :root[data-theme="dark"] select{background:#0f1116;border:1px solid var(--border);color:var(--text)}
+:root[data-theme="dark"] .metric-label{color:var(--muted)}
+:root[data-theme="dark"] .metric-value{color:var(--text)}
+:root[data-theme="dark"] .tab-btn:hover{background:var(--border)}
+:root[data-theme="dark"] tbody tr:hover{background:var(--border)}

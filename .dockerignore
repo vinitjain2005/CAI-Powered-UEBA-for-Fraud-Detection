@@ -1,0 +1,19 @@
+# Python
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# VCS & OS
+.git
+.gitignore
+.DS_Store
+
+# Env & logs
+.env
+*.log
+
+# App runtime state (optional to exclude large/generated data)
+app/state
+app/data
